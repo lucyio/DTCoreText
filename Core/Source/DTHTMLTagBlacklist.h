@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)addTag:(NSString*)tag;
 + (void)removeTag:(NSString*)tag;
 
++ (BOOL)contains:(NSString*)tag;
+
 @end
 
 NS_ASSUME_NONNULL_END

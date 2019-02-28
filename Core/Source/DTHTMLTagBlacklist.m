@@ -30,4 +30,9 @@
 	[instance.blacklist removeObject:tag];
 }
 
++ (BOOL)contains:(NSString*)tag {
+	DTHTMLTagBlacklist *instance = DTHTMLTagBlacklist.sharedInstance;
+	return [instance.blacklist containsObject:tag];
+}
+
 @end
