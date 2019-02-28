@@ -20,6 +20,14 @@
 	return sharedBlacklist;
 }
 
+- (id)init {
+	self = [super init];
+	if (self) {
+		self.blacklist = [NSMutableSet new];
+	}
+	return self;
+}
+
 + (void)addTag:(NSString*)tag {
 	DTHTMLTagBlacklist *instance = DTHTMLTagBlacklist.sharedInstance;
 	[instance.blacklist addObject:tag];
