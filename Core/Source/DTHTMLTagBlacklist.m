@@ -20,4 +20,14 @@
 	return sharedBlacklist;
 }
 
++ (void)addTag:(NSString*)tag {
+	DTHTMLTagBlacklist *instance = DTHTMLTagBlacklist.sharedInstance;
+	[instance.blacklist addObject:tag];
+}
+
++ (void)removeTag:(NSString*)tag {
+	DTHTMLTagBlacklist *instance = DTHTMLTagBlacklist.sharedInstance;
+	[instance.blacklist removeObject:tag];
+}
+
 @end

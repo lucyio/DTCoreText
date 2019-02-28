@@ -12,7 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DTHTMLTagBlacklist : NSObject
 
+@property (nonatomic, strong) NSMutableSet *blacklist;
+
 + (instancetype)sharedInstance;
+
++ (void)addTag:(NSString*)tag;
++ (void)removeTag:(NSString*)tag;
 
 @end
 
