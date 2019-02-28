@@ -28,6 +28,7 @@
 #import "NSString+HTML.h"
 #import "NSCharacterSet+HTML.h"
 #import "NSMutableAttributedString+HTML.h"
+#import "DTHTMLTagBlacklist.h"
 
 #if DEBUG_LOG_METRICS
 #import "NSString+DTFormatNumbers.h"
@@ -710,8 +711,14 @@
 		{
 			return;
 		}
-
-		DTHTMLElement *newNode = [DTHTMLElement elementWithName:elementName attributes:attributeDict options:strongSelf->_options];
+		
+		DTHTMLElement *newNode;
+		if ([DTHTMLTagBlacklist contains:elementName]) {
+			newNode = [DTHTMLElement elementWithName:elementName attributes:[NSDictionary new] options:strongSelf->_options];
+		} else {
+			newNode = [DTHTMLElement elementWithName:elementName attributes:attributeDict options:strongSelf->_options];
+		}
+		
 		DTHTMLElement *previousLastChild = nil;
 		
 		if (strongSelf->_currentTag)

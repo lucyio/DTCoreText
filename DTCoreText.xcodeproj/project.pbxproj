@@ -518,6 +518,9 @@
 		E2262DFF163833AD00BFDAD7 /* DTTextBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = A7081EA215036460002987F1 /* DTTextBlock.m */; };
 		E2262E031638346200BFDAD7 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7C1CC0E14D6CFD5008D6468 /* AppKit.framework */; };
 		E2262EA41638485F00BFDAD7 /* DTCoreText.h in Headers */ = {isa = PBXBuildFile; fileRef = A70B4C9E1486558200873A4A /* DTCoreText.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2645A2A2228016E001D8570 /* DTHTMLTagBlacklist.m in Sources */ = {isa = PBXBuildFile; fileRef = F2645A282228015D001D8570 /* DTHTMLTagBlacklist.m */; };
+		F2645A2B2228016E001D8570 /* DTHTMLTagBlacklist.m in Sources */ = {isa = PBXBuildFile; fileRef = F2645A282228015D001D8570 /* DTHTMLTagBlacklist.m */; };
+		F2645A2C2228016F001D8570 /* DTHTMLTagBlacklist.m in Sources */ = {isa = PBXBuildFile; fileRef = F2645A282228015D001D8570 /* DTHTMLTagBlacklist.m */; };
 		FD3C5FEB1F510E9D000352CE /* DTCoreTextLayouter.m in Sources */ = {isa = PBXBuildFile; fileRef = A788C91F14863E8700E1AFD9 /* DTCoreTextLayouter.m */; };
 		FD3C5FEC1F510E9D000352CE /* DTCoreTextLayoutFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = A788C92114863E8700E1AFD9 /* DTCoreTextLayoutFrame.m */; };
 		FD3C5FED1F510E9D000352CE /* DTCoreTextLayoutFrame+Cursor.m in Sources */ = {isa = PBXBuildFile; fileRef = A78E3C50178D674300D17DCD /* DTCoreTextLayoutFrame+Cursor.m */; };
@@ -1076,6 +1079,8 @@
 		C2CDBADA17CCD245000E4AD7 /* CSSOOMCrash.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = CSSOOMCrash.html; sourceTree = "<group>"; };
 		DDCCEB1D17005A4F009FF923 /* css.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = css.css; sourceTree = "<group>"; };
 		E2262DC61638331500BFDAD7 /* DTCoreText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DTCoreText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2645A272228015D001D8570 /* DTHTMLTagBlacklist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTHTMLTagBlacklist.h; sourceTree = "<group>"; };
+		F2645A282228015D001D8570 /* DTHTMLTagBlacklist.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTHTMLTagBlacklist.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1386,6 +1391,7 @@
 		A788C90D14863E8700E1AFD9 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				F2645A0D22280113001D8570 /* Config */,
 				A7675E6E172EA21E00C548CB /* Debug */,
 				A7949A4414CAF56300A8CCDE /* HTML Parsing */,
 				A7AE580A1725351B00A9BF61 /* HTML Writing */,
@@ -1703,6 +1709,15 @@
 				3A4EA5311D475D76009222BF /* NSNumberRomanNumeralsTest.m */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		F2645A0D22280113001D8570 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				F2645A272228015D001D8570 /* DTHTMLTagBlacklist.h */,
+				F2645A282228015D001D8570 /* DTHTMLTagBlacklist.m */,
+			);
+			name = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2430,6 +2445,7 @@
 				94D24B0F1D4AFE7800C7F33C /* DTLazyImageView.m in Sources */,
 				94D24B101D4AFE7800C7F33C /* DTLinkButton.m in Sources */,
 				94D24B121D4AFE7800C7F33C /* DTBreakHTMLElement.m in Sources */,
+				F2645A2C2228016F001D8570 /* DTHTMLTagBlacklist.m in Sources */,
 				94D24B131D4AFE7800C7F33C /* DTCoreTextLayoutFrame+Cursor.m in Sources */,
 				94D24B141D4AFE7800C7F33C /* DTAttributedLabel.m in Sources */,
 				94D24B151D4AFE7800C7F33C /* DTTextAttachmentHTMLElement.m in Sources */,
@@ -2551,6 +2567,7 @@
 				A7B130481B4B25BF0014E109 /* DTAttributedLabel.m in Sources */,
 				A79BA6861B46A24F0086C2F6 /* DTTextAttachmentHTMLElement.m in Sources */,
 				A7B1304E1B4B25BF0014E109 /* DTAttributedTextView.m in Sources */,
+				F2645A2B2228016E001D8570 /* DTHTMLTagBlacklist.m in Sources */,
 				A79BA6AE1B46A2700086C2F6 /* NSAttributedString+DTCoreText.m in Sources */,
 				A7B1304C1B4B25BF0014E109 /* DTAttributedTextContentView.m in Sources */,
 				A79BA67E1B46A24F0086C2F6 /* DTHorizontalRuleHTMLElement.m in Sources */,
@@ -2621,6 +2638,7 @@
 				E2262DD61638336700BFDAD7 /* DTImage+HTML.m in Sources */,
 				E2262DD81638337D00BFDAD7 /* DTCoreTextConstants.m in Sources */,
 				E2262DDC1638337D00BFDAD7 /* DTHTMLAttributedStringBuilder.m in Sources */,
+				F2645A2A2228016E001D8570 /* DTHTMLTagBlacklist.m in Sources */,
 				E2262DDE1638337D00BFDAD7 /* DTHTMLElement.m in Sources */,
 				E2262DE01638337D00BFDAD7 /* DTCSSListStyle.m in Sources */,
 				E2262DE21638337D00BFDAD7 /* DTCSSStylesheet.m in Sources */,
