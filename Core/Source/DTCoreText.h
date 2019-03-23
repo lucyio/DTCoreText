@@ -26,6 +26,7 @@
 #import "DTTextBlock.h"
 #import "DTCSSStylesheet.h"
 #import "DTCoreTextFontDescriptor.h"
+#import "DTHTMLTagBlacklist.h"
 #import "DTCoreTextParagraphStyle.h"
 #import "DTHTMLAttributedStringBuilder.h"
 #import "DTHTMLElement.h"
