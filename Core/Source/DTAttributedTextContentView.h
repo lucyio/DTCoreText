@@ -27,8 +27,6 @@ extern NSString * const DTAttributedTextContentViewDidFinishLayoutNotification;
 
 @optional
 
-- (CGRect)attributedTextContentView:(DTAttributedTextContentView*)attributedTextContentView calculateScaledFrameForAttachment:(DTTextAttachment*)attachment basedOnOriginalFrame:(CGRect)originalFrame;
-
 /**
  @name Notifications
  */
