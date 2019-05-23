@@ -61,6 +61,16 @@
 		_line = layoutLine;
 	}
 	
+	DTTextAttachment *attachment = [self attachment];
+	CGSize size = [attachment originalSize];
+	CGFloat availableWidth = 325.0 - _line.baselineOrigin.x;
+
+	if (size.width > 325.0 - _line.baselineOrigin.x) {
+		CGFloat ratio = availableWidth / size.width;
+		CGSize scaledSize = CGSizeMake(availableWidth, size.height * ratio);
+		[attachment setOriginalSize:scaledSize];
+	}
+	
 	return self;
 }
 

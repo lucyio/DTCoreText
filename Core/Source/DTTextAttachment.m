@@ -104,11 +104,11 @@ static NSMutableDictionary *_classForTagNameLookup = nil;
 		NSValue *maxImageSizeValue =[options objectForKey:DTMaxImageSize];
 		if (maxImageSizeValue)
 		{
-#if TARGET_OS_IPHONE
-			_maxImageSize = [maxImageSizeValue CGSizeValue];
-#else
-			_maxImageSize = [maxImageSizeValue sizeValue];
-#endif
+		_maxImageSize = [maxImageSizeValue CGSizeValue];
+//#if TARGET_OS_IPHONE
+//#else
+//			_maxImageSize = [maxImageSizeValue sizeValue];
+//#endif
 		}
 		
 		// set the display size from the original size, restricted to the max size
@@ -204,11 +204,7 @@ static NSMutableDictionary *_classForTagNameLookup = nil;
 	if (!CGSizeEqualToSize(originalSize, _originalSize))
 	{
 		_originalSize = originalSize;
-		
-		if (_displaySize.width==0 || _displaySize.height==0)
-		{
-			[self setDisplaySize:_originalSize withMaxDisplaySize:_maxImageSize];
-		}
+		[self setDisplaySize:_originalSize withMaxDisplaySize:_maxImageSize];
 	}
 }
 

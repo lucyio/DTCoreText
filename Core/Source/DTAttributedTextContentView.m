@@ -281,6 +281,10 @@ static Class _layerClassToUseForDTAttributedTextContentView = nil;
 						CGFloat descender = [attachment descentForLayout];
 						
 						frameForSubview = CGRectMake(oneRun.frame.origin.x, oneLine.baselineOrigin.y - ascender, oneRun.frame.size.width, ascender+descender);
+						
+						//1. set new frame here
+						//2. create delegate call to move responsibility of scaling out of library
+						frameForSubview = [_delegate attributedTextContentView:self calculateScaledFrameForAttachment:attachment basedOnOriginalFrame:frameForSubview];
 					}
 					else
 					{
