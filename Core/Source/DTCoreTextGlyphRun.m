@@ -15,6 +15,7 @@
 #import "DTCoreTextFunctions.h"
 #import "NSDictionary+DTCoreText.h"
 #import "DTWeakSupport.h"
+#import "DTRenderingConfig.h"
 #import "DTLog.h"
 
 @implementation DTCoreTextGlyphRun
@@ -59,16 +60,7 @@
 		
 		_offset = offset;
 		_line = layoutLine;
-	}
-	
-	DTTextAttachment *attachment = [self attachment];
-	CGSize size = [attachment originalSize];
-	CGFloat availableWidth = 325.0 - _line.baselineOrigin.x;
-
-	if (size.width > 325.0 - _line.baselineOrigin.x) {
-		CGFloat ratio = availableWidth / size.width;
-		CGSize scaledSize = CGSizeMake(availableWidth, size.height * ratio);
-		[attachment setOriginalSize:scaledSize];
+		[self prepareNestedAttachments];
 	}
 	
 	return self;
@@ -79,6 +71,20 @@
 	if (_run)
 	{
 		CFRelease(_run);
+	}
+}
+
+- (void)prepareNestedAttachments {
+	
+	CGFloat availableScreenSize = [DTRenderingConfig sharedInstance].maxAvailableWidth;
+	DTTextAttachment *attachment = [self attachment];
+	CGSize size = [attachment originalSize];
+	CGFloat availableWidth = availableScreenSize - _line.baselineOrigin.x;
+	
+	if (size.width > availableWidth) {
+		CGFloat ratio = availableWidth / size.width;
+		CGSize scaledSize = CGSizeMake(availableWidth, size.height * ratio);
+		[attachment setOriginalSize:scaledSize];
 	}
 }
 
