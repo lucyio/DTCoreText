@@ -138,6 +138,8 @@ NSString * const DTLazyImageViewDidFinishDownloadNotification = @"DTLazyImageVie
 			[self _notifyDelegate];
 			
 			return;
+		} else {
+			self.image = [UIImage imageNamed: @"loading_image"];
 		}
 		
 		[self loadImageAtURL:_url];
