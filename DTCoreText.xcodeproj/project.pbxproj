@@ -518,16 +518,16 @@
 		E2262DFF163833AD00BFDAD7 /* DTTextBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = A7081EA215036460002987F1 /* DTTextBlock.m */; };
 		E2262E031638346200BFDAD7 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7C1CC0E14D6CFD5008D6468 /* AppKit.framework */; };
 		E2262EA41638485F00BFDAD7 /* DTCoreText.h in Headers */ = {isa = PBXBuildFile; fileRef = A70B4C9E1486558200873A4A /* DTCoreText.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F217EE9422973F9000F11089 /* DTRenderingConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = F217EE9222973F9000F11089 /* DTRenderingConfig.h */; };
-		F217EE9522973F9100F11089 /* DTRenderingConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = F217EE9222973F9000F11089 /* DTRenderingConfig.h */; };
-		F217EE9622973F9100F11089 /* DTRenderingConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = F217EE9222973F9000F11089 /* DTRenderingConfig.h */; };
+		F217EE9422973F9000F11089 /* DTRenderingConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = F217EE9222973F9000F11089 /* DTRenderingConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F217EE9622973F9100F11089 /* DTRenderingConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = F217EE9222973F9000F11089 /* DTRenderingConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F217EE9722973F9100F11089 /* DTRenderingConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = F217EE9322973F9000F11089 /* DTRenderingConfig.m */; };
 		F217EE9822973F9100F11089 /* DTRenderingConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = F217EE9322973F9000F11089 /* DTRenderingConfig.m */; };
 		F217EE9922973F9100F11089 /* DTRenderingConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = F217EE9322973F9000F11089 /* DTRenderingConfig.m */; };
 		F217EE9A22973F9100F11089 /* DTRenderingConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = F217EE9322973F9000F11089 /* DTRenderingConfig.m */; };
+		F217EEB42297426C00F11089 /* DTRenderingConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = F217EE9222973F9000F11089 /* DTRenderingConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F236248D2246D1FF0000FB5B /* DTHTMLTagBlacklist.h in Headers */ = {isa = PBXBuildFile; fileRef = F2645A272228015D001D8570 /* DTHTMLTagBlacklist.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F23624A72246D1FF0000FB5B /* DTHTMLTagBlacklist.h in Headers */ = {isa = PBXBuildFile; fileRef = F2645A272228015D001D8570 /* DTHTMLTagBlacklist.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F23624A82246D1FF0000FB5B /* DTHTMLTagBlacklist.h in Headers */ = {isa = PBXBuildFile; fileRef = F2645A272228015D001D8570 /* DTHTMLTagBlacklist.h */; };
+		F23624A82246D1FF0000FB5B /* DTHTMLTagBlacklist.h in Headers */ = {isa = PBXBuildFile; fileRef = F2645A272228015D001D8570 /* DTHTMLTagBlacklist.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F2645A2A2228016E001D8570 /* DTHTMLTagBlacklist.m in Sources */ = {isa = PBXBuildFile; fileRef = F2645A282228015D001D8570 /* DTHTMLTagBlacklist.m */; };
 		F2645A2B2228016E001D8570 /* DTHTMLTagBlacklist.m in Sources */ = {isa = PBXBuildFile; fileRef = F2645A282228015D001D8570 /* DTHTMLTagBlacklist.m */; };
 		F2645A2C2228016F001D8570 /* DTHTMLTagBlacklist.m in Sources */ = {isa = PBXBuildFile; fileRef = F2645A282228015D001D8570 /* DTHTMLTagBlacklist.m */; };
@@ -1845,7 +1845,7 @@
 				A79BA6891B46A2530086C2F6 /* DTImage+HTML.h in Headers */,
 				A79BA6651B46A24A0086C2F6 /* DTCSSListStyle.h in Headers */,
 				A7B1305B1B4B25F00014E109 /* DTDictationPlaceholderView.h in Headers */,
-				F217EE9522973F9100F11089 /* DTRenderingConfig.h in Headers */,
+				F217EEB42297426C00F11089 /* DTRenderingConfig.h in Headers */,
 				A79BA66F1B46A24A0086C2F6 /* DTCoreTextFontDescriptor.h in Headers */,
 				A7B130491B4B25BF0014E109 /* DTAttributedTextCell.h in Headers */,
 				A79BA6A51B46A2660086C2F6 /* DTCoreTextLayoutLine.h in Headers */,
