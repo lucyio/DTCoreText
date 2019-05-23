@@ -528,6 +528,12 @@
 		F236248D2246D1FF0000FB5B /* DTHTMLTagBlacklist.h in Headers */ = {isa = PBXBuildFile; fileRef = F2645A272228015D001D8570 /* DTHTMLTagBlacklist.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F23624A72246D1FF0000FB5B /* DTHTMLTagBlacklist.h in Headers */ = {isa = PBXBuildFile; fileRef = F2645A272228015D001D8570 /* DTHTMLTagBlacklist.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F23624A82246D1FF0000FB5B /* DTHTMLTagBlacklist.h in Headers */ = {isa = PBXBuildFile; fileRef = F2645A272228015D001D8570 /* DTHTMLTagBlacklist.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2432DA62297474B0068B785 /* loading image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2432D8A2297474B0068B785 /* loading image@2x.png */; };
+		F2432DA72297474B0068B785 /* loading image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2432D8A2297474B0068B785 /* loading image@2x.png */; };
+		F2432DA82297474B0068B785 /* loading image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2432D8A2297474B0068B785 /* loading image@2x.png */; };
+		F2432DAA2297474B0068B785 /* loading image@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2432D8B2297474B0068B785 /* loading image@3x.png */; };
+		F2432DAB2297474B0068B785 /* loading image@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2432D8B2297474B0068B785 /* loading image@3x.png */; };
+		F2432DAC2297474B0068B785 /* loading image@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2432D8B2297474B0068B785 /* loading image@3x.png */; };
 		F2645A2A2228016E001D8570 /* DTHTMLTagBlacklist.m in Sources */ = {isa = PBXBuildFile; fileRef = F2645A282228015D001D8570 /* DTHTMLTagBlacklist.m */; };
 		F2645A2B2228016E001D8570 /* DTHTMLTagBlacklist.m in Sources */ = {isa = PBXBuildFile; fileRef = F2645A282228015D001D8570 /* DTHTMLTagBlacklist.m */; };
 		F2645A2C2228016F001D8570 /* DTHTMLTagBlacklist.m in Sources */ = {isa = PBXBuildFile; fileRef = F2645A282228015D001D8570 /* DTHTMLTagBlacklist.m */; };
@@ -1091,6 +1097,8 @@
 		E2262DC61638331500BFDAD7 /* DTCoreText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DTCoreText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F217EE9222973F9000F11089 /* DTRenderingConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTRenderingConfig.h; sourceTree = "<group>"; };
 		F217EE9322973F9000F11089 /* DTRenderingConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTRenderingConfig.m; sourceTree = "<group>"; };
+		F2432D8A2297474B0068B785 /* loading image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading image@2x.png"; sourceTree = "<group>"; };
+		F2432D8B2297474B0068B785 /* loading image@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading image@3x.png"; sourceTree = "<group>"; };
 		F2645A272228015D001D8570 /* DTHTMLTagBlacklist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTHTMLTagBlacklist.h; sourceTree = "<group>"; };
 		F2645A282228015D001D8570 /* DTHTMLTagBlacklist.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTHTMLTagBlacklist.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1723,9 +1731,19 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
+		F2432D892297474B0068B785 /* loading_image */ = {
+			isa = PBXGroup;
+			children = (
+				F2432D8A2297474B0068B785 /* loading image@2x.png */,
+				F2432D8B2297474B0068B785 /* loading image@3x.png */,
+			);
+			path = loading_image;
+			sourceTree = "<group>";
+		};
 		F2645A0D22280113001D8570 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				F2432D892297474B0068B785 /* loading_image */,
 				F2645A272228015D001D8570 /* DTHTMLTagBlacklist.h */,
 				F2645A282228015D001D8570 /* DTHTMLTagBlacklist.m */,
 				F217EE9222973F9000F11089 /* DTRenderingConfig.h */,
@@ -2351,6 +2369,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2432DAC2297474B0068B785 /* loading image@3x.png in Resources */,
+				F2432DA82297474B0068B785 /* loading image@2x.png in Resources */,
 				11848C08215E204F00A18658 /* default.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2410,6 +2430,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2432DAB2297474B0068B785 /* loading image@3x.png in Resources */,
+				F2432DA72297474B0068B785 /* loading image@2x.png in Resources */,
 				11848C07215E204600A18658 /* default.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2418,6 +2440,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2432DAA2297474B0068B785 /* loading image@3x.png in Resources */,
+				F2432DA62297474B0068B785 /* loading image@2x.png in Resources */,
 				11848C06215E203700A18658 /* default.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
