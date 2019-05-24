@@ -9,6 +9,7 @@
 #import <ImageIO/ImageIO.h>
 #import "DTLazyImageView.h"
 #import "DTCompatibility.h"
+#import "DTRenderingConfig.h"
 
 #import <DTFoundation/DTLog.h>
 
@@ -139,10 +140,12 @@ NSString * const DTLazyImageViewDidFinishDownloadNotification = @"DTLazyImageVie
 			
 			return;
 		} else {
-			self.image = [UIImage imageNamed:@"loading image" inBundle:nil compatibleWithTraitCollection:nil];
+			NSString *imageName = [DTRenderingConfig sharedInstance].loadingImageName;
+			self.image = [UIImage imageNamed:imageName inBundle:nil compatibleWithTraitCollection:nil];
 		}
-		
-		[self loadImageAtURL:_url];
+		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+			[self loadImageAtURL:_url];
+		});
 	}	
 }
 
