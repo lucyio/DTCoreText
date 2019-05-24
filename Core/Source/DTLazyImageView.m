@@ -9,6 +9,7 @@
 #import <ImageIO/ImageIO.h>
 #import "DTLazyImageView.h"
 #import "DTCompatibility.h"
+#import "DTRenderingConfig.h"
 
 #import <DTFoundation/DTLog.h>
 
@@ -138,8 +139,10 @@ NSString * const DTLazyImageViewDidFinishDownloadNotification = @"DTLazyImageVie
 			[self _notifyDelegate];
 			
 			return;
+		} else {
+			NSString *imageName = [DTRenderingConfig sharedInstance].loadingImageName;
+			self.image = [UIImage imageNamed:imageName inBundle:nil compatibleWithTraitCollection:nil];
 		}
-		
 		[self loadImageAtURL:_url];
 	}	
 }

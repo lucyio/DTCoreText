@@ -204,11 +204,7 @@ static NSMutableDictionary *_classForTagNameLookup = nil;
 	if (!CGSizeEqualToSize(originalSize, _originalSize))
 	{
 		_originalSize = originalSize;
-		
-		if (_displaySize.width==0 || _displaySize.height==0)
-		{
-			[self setDisplaySize:_originalSize withMaxDisplaySize:_maxImageSize];
-		}
+		[self setDisplaySize:_originalSize withMaxDisplaySize:_maxImageSize];
 	}
 }
 
