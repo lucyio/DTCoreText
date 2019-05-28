@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)sharedInstance;
 
 @property (nonatomic, assign) CGFloat maxAvailableWidth;
+@property (nonatomic, strong) NSString *loadingImageName;
 
 @end
 
