@@ -12,10 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DTRenderingConfig : NSObject
 
-+ (instancetype)sharedInstance;
-
-@property (nonatomic, strong) NSString *loadingImageName;
+@property (nonatomic, strong) NSString *imageName;
 @property (nonatomic, assign) CGFloat maxAvailableWidth;
+
++ (instancetype)sharedInstance;
 
 @end
 
