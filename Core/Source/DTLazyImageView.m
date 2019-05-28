@@ -140,7 +140,7 @@ NSString * const DTLazyImageViewDidFinishDownloadNotification = @"DTLazyImageVie
 			
 			return;
 		} else {
-			NSString *imageName = [DTRenderingConfig sharedInstance].loadingImageName;
+			NSString *imageName = [DTRenderingConfig sharedInstance].imageName;
 			self.image = [UIImage imageNamed:imageName inBundle:nil compatibleWithTraitCollection:nil];
 		}
 		[self loadImageAtURL:_url];

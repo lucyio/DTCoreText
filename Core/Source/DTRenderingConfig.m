@@ -25,7 +25,7 @@
 	self = [super init];
 	if (self) {
 		self.maxAvailableWidth = 0.0f;
-		self.loadingImageName = @"";
+		self.imageName = @"";
 	}
 	return self;
 }
