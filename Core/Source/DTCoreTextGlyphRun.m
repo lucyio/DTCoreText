@@ -10,6 +10,7 @@
 #import "DTCoreTextGlyphRun.h"
 #import "DTCoreTextLayoutLine.h"
 #import "DTTextAttachment.h"
+#import "DTImageTextAttachment.h"
 #import "DTCoreTextConstants.h"
 #import "DTCoreTextParagraphStyle.h"
 #import "DTCoreTextFunctions.h"
@@ -78,6 +79,9 @@
 	
 	CGFloat availableScreenSize = [DTRenderingConfig sharedInstance].maxAvailableWidth;
 	DTTextAttachment *attachment = [self attachment];
+	
+	if (![attachment isKindOfClass:[DTImageTextAttachment class]]) { return; }
+	
 	CGSize size = [attachment originalSize];
 	CGFloat availableWidth = availableScreenSize - _line.baselineOrigin.x;
 	
