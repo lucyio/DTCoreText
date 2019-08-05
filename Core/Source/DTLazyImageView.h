@@ -72,6 +72,7 @@ extern NSString * const DTLazyImageViewDidFinishDownloadNotification;
  The delegate, conforming to <DTLazyImageViewDelegate>, to inform when the image dimensions were determined
  */
 @property (nonatomic, DT_WEAK_PROPERTY) id<DTLazyImageViewDelegate> delegate;
+@property (nonatomic, DT_WEAK_PROPERTY) id<DTLazyImageViewAuthorizationDelegate> authorizationDelegate;
 
 
 /**
