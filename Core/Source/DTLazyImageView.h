@@ -19,6 +19,8 @@ extern NSString * const DTLazyImageViewDidFinishDownloadNotification;
  Protocol for delegates of <DTLazyImageView> to inform them about the downloaded image dimensions.
  */
 @protocol DTLazyImageViewDelegate <NSObject>
+
+- (NSMutableURLRequest *)requestAuthorizationForURLRequest:(NSMutableURLRequest *)request;
 @optional
 
 /**

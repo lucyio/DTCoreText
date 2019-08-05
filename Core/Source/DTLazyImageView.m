@@ -98,6 +98,8 @@ NSString * const DTLazyImageViewDidFinishDownloadNotification = @"DTLazyImageVie
 		
 		[[NSNotificationCenter defaultCenter] postNotificationName:DTLazyImageViewWillStartDownloadNotification object:self];
 		
+		_urlRequest = [self.delegate requestAuthorizationForURLRequest:_urlRequest];
+		
 #if DTCORETEXT_USES_NSURLSESSION
 		
 		if (!_session)
