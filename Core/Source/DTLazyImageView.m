@@ -53,6 +53,7 @@ NSString * const DTLazyImageViewDidFinishDownloadNotification = @"DTLazyImageVie
 	BOOL shouldShowProgressiveDownload;
 	
 	DT_WEAK_VARIABLE id<DTLazyImageViewDelegate> _delegate;
+	DT_WEAK_VARIABLE id<DTLazyImageViewAuthorizationDelegate> _authorizationDelegate;
 }
 
 - (void)dealloc
@@ -98,7 +99,7 @@ NSString * const DTLazyImageViewDidFinishDownloadNotification = @"DTLazyImageVie
 		
 		[[NSNotificationCenter defaultCenter] postNotificationName:DTLazyImageViewWillStartDownloadNotification object:self];
 		
-		_urlRequest = [self.delegate requestAuthorizationForURLRequest:_urlRequest];
+		_urlRequest = [_authorizationDelegate authorizeDownloadRequest:_urlRequest];
 		
 #if DTCORETEXT_USES_NSURLSESSION
 		
