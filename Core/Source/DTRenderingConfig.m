@@ -8,12 +8,6 @@
 
 #import "DTRenderingConfig.h"
 
-@interface DTRenderingConfig ()
-
-@property (nonatomic, assign) CGSize defaultImageSize;
-
-@end
-
 @implementation DTRenderingConfig
 
 + (instancetype)sharedInstance {

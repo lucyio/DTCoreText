@@ -13,6 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface DTRenderingConfig : NSObject
 
 @property (nonatomic, strong) NSString *imageName;
+@property (nonatomic, strong) void (^inlineImageStyle)(UIView*);
+
+@property (nonatomic, assign, readonly) CGSize defaultImageSize;
 
 + (instancetype)sharedInstance;
 
