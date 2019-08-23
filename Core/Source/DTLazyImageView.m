@@ -135,8 +135,8 @@ NSString * const DTLazyImageViewDidFinishDownloadNotification = @"DTLazyImageVie
 		if (image)
 		{
 			self.image = image;
-			_fullWidth = 300 - self.frame.origin.x;//image.size.width;
-			_fullHeight = _fullWidth;//image.size.height;
+			_fullWidth = image.size.width;
+			_fullHeight = image.size.height;
 			
 			// this has to be synchronous
 			[self _notifyDelegate];
@@ -240,8 +240,8 @@ NSString * const DTLazyImageViewDidFinishDownloadNotification = @"DTLazyImageVie
 	UIImage *image = [[UIImage alloc] initWithData:data];
 	
 	self.image = image;
-	_fullWidth = 300 - self.frame.origin.x;
-	_fullHeight = _fullWidth;
+	_fullWidth = image.size.width;
+	_fullHeight = image.size.height;
 
 	[self _notifyDelegate];
 	
