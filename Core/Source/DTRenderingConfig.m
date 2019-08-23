@@ -8,6 +8,12 @@
 
 #import "DTRenderingConfig.h"
 
+@interface DTRenderingConfig ()
+
+@property (nonatomic, assign) CGSize defaultImageSize;
+
+@end
+
 @implementation DTRenderingConfig
 
 + (instancetype)sharedInstance {
@@ -27,6 +33,10 @@
 		self.imageName = @"";
 	}
 	return self;
+}
+
+- (CGSize)inlineImageSize {
+	return self.defaultImageSize;
 }
 
 @end
