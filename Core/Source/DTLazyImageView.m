@@ -230,9 +230,9 @@ NSString * const DTLazyImageViewDidFinishDownloadNotification = @"DTLazyImageVie
 
 - (void)_notifyDelegate
 {
-//    if ([self.delegate respondsToSelector:@selector(lazyImageView:didChangeImageSize:)]) {
-//        [self.delegate lazyImageView:self didChangeImageSize:CGSizeMake(_fullWidth, _fullHeight)];
-//    }
+    if ([self.delegate respondsToSelector:@selector(lazyImageView:didChangeImageSize:)]) {
+        [self.delegate lazyImageView:self didChangeImageSize:CGSizeMake(_fullWidth, _fullHeight)];
+    }
 }
 
 - (void)completeDownloadWithData:(NSData *)data
