@@ -281,7 +281,7 @@ static Class _layerClassToUseForDTAttributedTextContentView = nil;
 						CGFloat descender = [attachment descentForLayout];
 						
 						if ([attachment isKindOfClass:[DTImageTextAttachment class]]) {
-							frameForSubview = CGRectMake(oneRun.frame.origin.x, oneLine.baselineOrigin.y - ascender, oneRun.frame.size.width - oneRun.frame.origin.x, oneRun.frame.size.width - oneRun.frame.origin.x);
+							frameForSubview = CGRectMake(oneRun.frame.origin.x, oneLine.baselineOrigin.y - ascender, 240, 200 - oneRun.frame.origin.x);
 						} else {
 							frameForSubview = CGRectMake(oneRun.frame.origin.x, oneLine.baselineOrigin.y - ascender, oneRun.frame.size.width, ascender+descender);
 						}

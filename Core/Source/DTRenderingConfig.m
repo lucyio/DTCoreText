@@ -8,6 +8,11 @@
 
 #import "DTRenderingConfig.h"
 
+@interface DTRenderingConfig ()
+
+@property (nonatomic, assign) CGSize defaultImageSize;
+
+@end
 
 @implementation DTRenderingConfig
 
@@ -24,7 +29,7 @@
 - (id)init {
 	self = [super init];
 	if (self) {
-		self.maxAvailableWidth = 0.0f;
+		self.defaultImageSize = CGSizeMake(240, 200);
 		self.imageName = @"";
 	}
 	return self;

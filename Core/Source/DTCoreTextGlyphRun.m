@@ -76,20 +76,14 @@
 }
 
 - (void)prepareNestedAttachments {
-	
-	CGFloat availableScreenSize = [DTRenderingConfig sharedInstance].maxAvailableWidth;
+
 	DTTextAttachment *attachment = [self attachment];
-	
 	if (![attachment isKindOfClass:[DTImageTextAttachment class]]) { return; }
 	
-	CGSize size = [attachment originalSize];
-	CGFloat availableWidth = availableScreenSize - _line.baselineOrigin.x;
+	CGFloat availableWidth = 240 - _line.baselineOrigin.x;
 	
-	if (size.width > availableWidth) {
-		CGFloat ratio = availableWidth / size.width;
-		CGSize scaledSize = CGSizeMake(availableWidth, size.height * ratio);
-		[attachment setOriginalSize:scaledSize];
-	}
+	CGSize newSize = CGSizeMake(availableWidth, 200);
+	[attachment setOriginalSize:newSize];
 }
 
 #ifndef COVERAGE 
