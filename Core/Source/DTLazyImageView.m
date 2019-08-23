@@ -121,6 +121,7 @@ NSString * const DTLazyImageViewDidFinishDownloadNotification = @"DTLazyImageVie
 - (void)didMoveToSuperview
 {
 	[super didMoveToSuperview];
+	[DTRenderingConfig sharedInstance].inlineImageStyle(self);
 	
 	if (!self.image && (_url || _urlRequest) &&
 #if DTCORETEXT_USES_NSURLSESSION
