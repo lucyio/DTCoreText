@@ -70,6 +70,18 @@ NSString * const DTLazyImageViewDidFinishDownloadNotification = @"DTLazyImageVie
 	if (_imageSource) CFRelease(_imageSource);
 }
 
+- (void)prepareForDownload {
+	if (_loadingDelegate && [_loadingDelegate respondsToSelector:@selector(imageViewWillStartDownload:)]) {
+		[_loadingDelegate imageViewWillStartDownload:self];
+	}
+}
+
+- (void)handleDownloadFinishWithError: (NSError*)error {
+	if (_loadingDelegate && [_loadingDelegate respondsToSelector:@selector(imageView:didFinishDownload:)]) {
+		[_loadingDelegate imageView:self didFinishDownload:error];
+	}
+}
+
 - (void)loadImageAtURL:(NSURL *)url
 {
 	// local files we don't need to get asynchronously
