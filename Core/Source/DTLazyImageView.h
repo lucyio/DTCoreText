@@ -15,6 +15,13 @@
 extern NSString * const DTLazyImageViewWillStartDownloadNotification;
 extern NSString * const DTLazyImageViewDidFinishDownloadNotification;
 
+@protocol DTLazyImageViewLoadingDelegate <NSObject>
+
+- (void)imageViewWillStartDownload:(DTLazyImageView*) imageView;
+- (void)imageView:(DTLazyImageView*) imageview didFinishDownload:(NSError*) error;
+
+@end
+
 @protocol DTLazyImageViewAuthorizationDelegate <NSObject>
 
 - (NSMutableURLRequest *)authorizeDownloadRequest:(NSMutableURLRequest *) request;
