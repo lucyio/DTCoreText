@@ -54,6 +54,7 @@ NSString * const DTLazyImageViewDidFinishDownloadNotification = @"DTLazyImageVie
 	
 	DT_WEAK_VARIABLE id<DTLazyImageViewDelegate> _delegate;
 	DT_WEAK_VARIABLE id<DTLazyImageViewAuthorizationDelegate> _authorizationDelegate;
+	DT_WEAK_VARIABLE id<DTLazyImageViewLoadingDelegate> _loadingDelegate;
 }
 
 - (void)dealloc
