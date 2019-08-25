@@ -80,9 +80,9 @@
 	DTTextAttachment *attachment = [self attachment];
 	if (![attachment isKindOfClass:[DTImageTextAttachment class]]) { return; }
 	
-	CGFloat availableWidth = 240 - _line.baselineOrigin.x;
+	CGFloat availableWidth = DTRenderingConfig.sharedInstance.inlineImageSize.width - _line.baselineOrigin.x;
 	
-	CGSize newSize = CGSizeMake(availableWidth, 200);
+	CGSize newSize = CGSizeMake(availableWidth, DTRenderingConfig.sharedInstance.inlineImageSize.height);
 	[attachment setOriginalSize:newSize];
 }
 
