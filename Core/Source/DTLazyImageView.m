@@ -397,7 +397,6 @@ didCompleteWithError:(nullable NSError *)error
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
 #if DTCORETEXT_USES_NSURLSESSION
-	[_session invalidateAndCancel];
 	_dataTask = nil;
 #else
 	_connection = nil;
