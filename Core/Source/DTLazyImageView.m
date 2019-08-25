@@ -72,7 +72,7 @@ NSString * const DTLazyImageViewDidFinishDownloadNotification = @"DTLazyImageVie
 
 - (void)prepareForDownload {
 	if (_loadingDelegate && [_loadingDelegate respondsToSelector:@selector(imageViewWillStartDownload:)]) {
-		[_loadingDelegate imageViewWillStartDownload:self];
+		[_loadingDelegate imageViewWillStartDownload: self];
 	}
 }
 
@@ -80,7 +80,7 @@ NSString * const DTLazyImageViewDidFinishDownloadNotification = @"DTLazyImageVie
 	__weak DTLazyImageView* wSelf = self;
 	dispatch_async(dispatch_get_main_queue(), ^{
 		if (wSelf.loadingDelegate && [wSelf.loadingDelegate respondsToSelector:@selector(imageView:didFinishDownload:)]) {
-			[wSelf.loadingDelegate imageView:wSelf didFinishDownload:error];
+			[wSelf.loadingDelegate imageView: wSelf didFinishDownload: error];
 		}
 	});
 }

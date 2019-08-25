@@ -18,7 +18,7 @@ extern NSString * const DTLazyImageViewDidFinishDownloadNotification;
 @protocol DTLazyImageViewLoadingDelegate <NSObject>
 
 - (void)imageViewWillStartDownload:(DTLazyImageView*) imageView;
-- (void)imageView:(DTLazyImageView*) imageview didFinishDownload:(NSError*) error;
+- (void)imageView:(DTLazyImageView*) imageView didFinishDownload:(NSError*) error;
 
 @end
 
@@ -91,5 +91,6 @@ extern NSString * const DTLazyImageViewDidFinishDownloadNotification;
  Cancels the image downloading
  */
 - (void)cancelLoading;
+- (void)loadImageAtURL:(NSURL *)url;
 
 @end
