@@ -15,6 +15,13 @@
 extern NSString * const DTLazyImageViewWillStartDownloadNotification;
 extern NSString * const DTLazyImageViewDidFinishDownloadNotification;
 
+@protocol DTLazyImageViewLoadingDelegate <NSObject>
+
+- (void)imageViewWillStartDownload:(DTLazyImageView*) imageView;
+- (void)imageView:(DTLazyImageView*) imageView didFinishDownload:(NSError*) error;
+
+@end
+
 @protocol DTLazyImageViewAuthorizationDelegate <NSObject>
 
 - (NSMutableURLRequest *)authorizeDownloadRequest:(NSMutableURLRequest *) request;
@@ -72,6 +79,7 @@ extern NSString * const DTLazyImageViewDidFinishDownloadNotification;
  The delegate, conforming to <DTLazyImageViewDelegate>, to inform when the image dimensions were determined
  */
 @property (nonatomic, DT_WEAK_PROPERTY) id<DTLazyImageViewDelegate> delegate;
+@property (nonatomic, DT_WEAK_PROPERTY) id<DTLazyImageViewLoadingDelegate> loadingDelegate;
 @property (nonatomic, DT_WEAK_PROPERTY) id<DTLazyImageViewAuthorizationDelegate> authorizationDelegate;
 
 
@@ -83,5 +91,6 @@ extern NSString * const DTLazyImageViewDidFinishDownloadNotification;
  Cancels the image downloading
  */
 - (void)cancelLoading;
+- (void)loadImageAtURL:(NSURL *)url;
 
 @end

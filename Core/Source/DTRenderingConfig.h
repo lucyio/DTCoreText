@@ -13,9 +13,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface DTRenderingConfig : NSObject
 
 @property (nonatomic, strong) NSString *imageName;
-@property (nonatomic, assign) CGFloat maxAvailableWidth;
+@property (nonatomic, strong) void (^inlineImageStyle)(UIView*);
 
 + (instancetype)sharedInstance;
+
+- (CGSize)inlineImageSize;
 
 @end
 

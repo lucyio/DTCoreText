@@ -54,6 +54,7 @@ NSString * const DTLazyImageViewDidFinishDownloadNotification = @"DTLazyImageVie
 	
 	DT_WEAK_VARIABLE id<DTLazyImageViewDelegate> _delegate;
 	DT_WEAK_VARIABLE id<DTLazyImageViewAuthorizationDelegate> _authorizationDelegate;
+	DT_WEAK_VARIABLE id<DTLazyImageViewLoadingDelegate> _loadingDelegate;
 }
 
 - (void)dealloc
@@ -67,6 +68,21 @@ NSString * const DTLazyImageViewDidFinishDownloadNotification = @"DTLazyImageVie
 #endif
 	
 	if (_imageSource) CFRelease(_imageSource);
+}
+
+- (void)prepareForDownload {
+	if (_loadingDelegate && [_loadingDelegate respondsToSelector:@selector(imageViewWillStartDownload:)]) {
+		[_loadingDelegate imageViewWillStartDownload: self];
+	}
+}
+
+- (void)handleDownloadFinishWithError: (NSError*)error {
+	__weak DTLazyImageView* wSelf = self;
+	dispatch_async(dispatch_get_main_queue(), ^{
+		if (wSelf.loadingDelegate && [wSelf.loadingDelegate respondsToSelector:@selector(imageView:didFinishDownload:)]) {
+			[wSelf.loadingDelegate imageView: wSelf didFinishDownload: error];
+		}
+	});
 }
 
 - (void)loadImageAtURL:(NSURL *)url
@@ -98,6 +114,7 @@ NSString * const DTLazyImageViewDidFinishDownloadNotification = @"DTLazyImageVie
 		}
 		
 		[[NSNotificationCenter defaultCenter] postNotificationName:DTLazyImageViewWillStartDownloadNotification object:self];
+		[self prepareForDownload];
 		
 		_urlRequest = [self.authorizationDelegate authorizeDownloadRequest:_urlRequest];
 		
@@ -121,6 +138,7 @@ NSString * const DTLazyImageViewDidFinishDownloadNotification = @"DTLazyImageVie
 - (void)didMoveToSuperview
 {
 	[super didMoveToSuperview];
+	[DTRenderingConfig sharedInstance].inlineImageStyle(self);
 	
 	if (!self.image && (_url || _urlRequest) &&
 #if DTCORETEXT_USES_NSURLSESSION
@@ -142,9 +160,6 @@ NSString * const DTLazyImageViewDidFinishDownloadNotification = @"DTLazyImageVie
 			[self _notifyDelegate];
 			
 			return;
-		} else {
-			NSString *imageName = [DTRenderingConfig sharedInstance].imageName;
-			self.image = [UIImage imageNamed:imageName inBundle:nil compatibleWithTraitCollection:nil];
 		}
 		[self loadImageAtURL:_url];
 	}	
@@ -230,9 +245,9 @@ NSString * const DTLazyImageViewDidFinishDownloadNotification = @"DTLazyImageVie
 
 - (void)_notifyDelegate
 {
-	if ([self.delegate respondsToSelector:@selector(lazyImageView:didChangeImageSize:)]) {
-		[self.delegate lazyImageView:self didChangeImageSize:CGSizeMake(_fullWidth, _fullHeight)];
-	}
+    if ([self.delegate respondsToSelector:@selector(lazyImageView:didChangeImageSize:)]) {
+        [self.delegate lazyImageView:self didChangeImageSize:CGSizeMake(_fullWidth, _fullHeight)];
+    }
 }
 
 - (void)completeDownloadWithData:(NSData *)data
@@ -376,12 +391,12 @@ didCompleteWithError:(nullable NSError *)error
 
 	// success = no userInfo
 	[[NSNotificationCenter defaultCenter] postNotificationName:DTLazyImageViewDidFinishDownloadNotification object:self];
+	[self handleDownloadFinishWithError: nil];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
 #if DTCORETEXT_USES_NSURLSESSION
-	[_session invalidateAndCancel];
 	_dataTask = nil;
 #else
 	_connection = nil;
@@ -398,6 +413,7 @@ didCompleteWithError:(nullable NSError *)error
 	// send completion notification, pack in error as well
 	NSDictionary *userInfo = [NSDictionary dictionaryWithObject:error forKey:@"Error"];
 	[[NSNotificationCenter defaultCenter] postNotificationName:DTLazyImageViewDidFinishDownloadNotification object:self userInfo:userInfo];
+	[self handleDownloadFinishWithError:error];
 }
 
 #pragma mark Properties
