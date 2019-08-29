@@ -19,6 +19,7 @@ extern NSString * const DTLazyImageViewDidFinishDownloadNotification;
 
 - (void)imageViewWillStartDownload:(DTLazyImageView*) imageView;
 - (void)imageView:(DTLazyImageView*) imageView didFinishDownload:(NSError*) error;
+- (void)imageViewDidUseCachedImage:(DTLazyImageView*) imageView;
 
 @end
 

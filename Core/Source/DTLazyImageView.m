@@ -158,6 +158,9 @@ NSString * const DTLazyImageViewDidFinishDownloadNotification = @"DTLazyImageVie
 			
 			// this has to be synchronous
 			[self _notifyDelegate];
+			if (self.loadingDelegate && [self.loadingDelegate respondsToSelector:@selector(imageViewDidUseCachedImage:)]) {
+				[self.loadingDelegate imageViewDidUseCachedImage:self];
+			}
 			
 			return;
 		}
