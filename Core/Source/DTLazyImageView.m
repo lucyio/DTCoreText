@@ -297,18 +297,6 @@ didReceiveResponse:(NSURLResponse *)response
 	// does not fire for local file URLs
 	if ([response isKindOfClass:[NSHTTPURLResponse class]])
 	{
-		NSHTTPURLResponse *httpResponse = (id)response;
-		
-		if (![[httpResponse MIMEType] hasPrefix:@"image"])
-		{
-#if DTCORETEXT_USES_NSURLSESSION
-			completionHandler(NSURLSessionResponseCancel);
-#else
-			[self cancelLoading];
-#endif
-			return;
-		}
-		
 #if DTCORETEXT_USES_NSURLSESSION
 		completionHandler(NSURLSessionResponseAllow);
 #endif
